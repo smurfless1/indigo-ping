@@ -31,7 +31,12 @@ class Plugin(indigo.PluginBase):
     ########################################
     def runConcurrentThread(self):
         try:
+            sleeptime = 5
             while True:
+                try:
+                    sleeptime = int(self.pluginPrefs.get(u'seconds', 5))
+                except:
+                    pass
                 for dev in indigo.devices.iter("self"):
                     if not dev.enabled or not dev.configured:
                         continue
@@ -50,7 +55,7 @@ class Plugin(indigo.PluginBase):
                         if dev.onState is not None:
                             dev.updateStateOnServer("onOffState", success)
                             dev.updateStateImageOnServer(indigo.kStateImageSel.Auto)
-                self.sleep(5)
+                self.sleep(sleeptime)
         except self.StopThread:
             pass    # Optionally catch the StopThread exception and do any needed cleanup.
 

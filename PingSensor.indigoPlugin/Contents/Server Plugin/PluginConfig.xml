@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<PluginConfig>
+    <!-- You can add a SupportURL element inside here if you want a context
+         sensitive help link on the config UI - otherwise it will just link
+         to the URL specified in the AboutInformation element. -->
+    <SupportURL>http://forums.indigodomo.com/viewtopic.php?f=134</SupportURL>
+
+    <Field id="seconds"
+           type="textfield"
+           defaultValue="5"
+           tooltip="How often to ping (in seconds)" >
+        <Label>Seconds:</Label>
+    </Field>
+</PluginConfig>
